@@ -11,10 +11,7 @@ import de.caritas.cob.uploadservice.api.service.EncryptionService;
 import de.caritas.cob.uploadservice.api.service.LogService;
 import de.caritas.cob.uploadservice.generated.api.controller.UploadsApi;
 import io.swagger.annotations.Api;
-import java.util.Objects;
 import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -77,8 +74,8 @@ public class UploadController implements UploadsApi {
       @RequestHeader String rcUserId,
       @RequestPart MultipartFile file,
       @RequestParam String sendNotification,
-      @RequestPart(required = false) String t,
-      @RequestPart(required = false) String fileHeader,
+      @RequestParam(required = false) String t,
+      @RequestParam(required = false) String fileHeader,
       @RequestParam(required = false) String msg,
       @RequestParam(required = false) String description,
       @RequestParam(required = false) String tmId) {
